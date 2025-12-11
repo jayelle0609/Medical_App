@@ -279,7 +279,7 @@ elif menu == "4. Resident Portfolio":
     else:
         resident = st.selectbox("Select resident", df['full_name'].tolist())
         res_row = df[df['full_name']==resident].iloc[0]
-        st.subheader(f"{resident} Portfolio Overview")
+        st.success(f"{resident} Portfolio Overview")
 
         # Teaching Progress
         st.markdown("### Teaching Progress")
