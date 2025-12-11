@@ -56,6 +56,7 @@ df = load_doctors()
 # ---------------------------
 if menu == "1. Add Doctor":
     st.header("Add Doctor — Basic Information")
+
     with st.form(key='add_doctor_form'):
         col1, col2, col3 = st.columns(3)
         with col1:
@@ -87,7 +88,7 @@ if menu == "1. Add Doctor":
             "medical_school": medical_school,
             "registration_id": registration_id,
             "email": email,
-            "phone": phone,
+            "phone": str(phone).replace(',', ''),  # remove commas
             "year": int(year),
             "rotations": ";".join(rotations),
             "teaching_hours": float(teaching_hours),
@@ -109,7 +110,14 @@ if menu == "1. Add Doctor":
 
     st.markdown("---")
     st.subheader("All doctors in system")
-    st.dataframe(df)
+
+    # Display full text and remove truncation
+    pd.set_option('display.max_colwidth', None)
+    df['phone'] = df['phone'].astype(str).str.replace(',', '')  # ensure phone format
+
+    # Wider and taller display
+    st.dataframe(df, width=1200, height=500)
+
 
 # ---------------------------
 # Section 2: Rotations, EPA Tracking Dashboard
@@ -355,5 +363,4 @@ elif menu == "4. Resident Portfolio":
                 return ''
 
         st.dataframe(epa_df.style.applymap(highlight_not_completed, subset=['Completed']))
-
 
