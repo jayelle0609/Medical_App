@@ -105,7 +105,7 @@ if menu == "1. Add Doctor":
         st.subheader("Tracking EPA Grades and Completion Status")
         st.success(
     "Necessary EPA Entrustment Level to be attained for exit: "
-    "[Necessary EPA Entrustment Level to be attained for exit](https://isomer-user-content.by.gov.sg/91/c65aeb46-a34c-4c92-8d36-12070f9690d8/emergency-medicine-epasd8f2c4aebc15419b8729ec17766476f7.pdf)"
+    "[EPA Passing Level Requirements](https://isomer-user-content.by.gov.sg/91/c65aeb46-a34c-4c92-8d36-12070f9690d8/emergency-medicine-epasd8f2c4aebc15419b8729ec17766476f7.pdf)"
 )
 
         col1, col2 = st.columns(2)
