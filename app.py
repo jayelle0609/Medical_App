@@ -94,13 +94,14 @@ if menu == "1. Add Doctor":
             ed_ultrasound_done = st.number_input("ED Ultrasound Done", min_value=0, value=0)
             ed_ultrasound_total = st.number_input("ED Ultrasound Total", min_value=0, value=0)
         with col3:
-            MMed_A_Status = st.text_input("MMed A Status")
-            MMed_B_Status = st.text_input("MMed B Status")
-            MMed_C_Status = st.text_input("MMed C Status")
-            Teaching_Admin_Status = st.text_input("Teaching Admin Status")
-            Clinical_Viva_Status = st.text_input("Clinical Viva Status")
-            CAT_Status = st.text_input("CAT Status")
-            ABMS_MCQs_Status = st.text_input("ABMS MCQs Status")
+            MMed_A_Status = st.selectbox("MMed A Status", ["Pass", "Fail", "Pending"])
+            MMed_B_Status = st.selectbox("MMed B Status", ["Pass", "Fail", "Pending"])
+            MMed_C_Status = st.selectbox("MMed C Status", ["Pass", "Fail", "Pending"])
+            Teaching_Admin_Status = st.selectbox("Teaching Admin Status", ["Pass", "Fail", "Pending"])
+            Clinical_Viva_Status = st.selectbox("Clinical Viva Status", ["Pass", "Fail", "Pending"])
+            CAT_Status = st.selectbox("CAT Status", ["Pass", "Fail", "Pending"])
+            ABMS_MCQs_Status = st.selectbox("ABMS MCQs Status", ["Pass", "Fail", "Pending"])
+
 
         st.subheader("Tracking EPA Grades and Completion Status")
         st.success(
