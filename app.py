@@ -144,9 +144,6 @@ elif menu == "2. Rotations, EPA Tracking Dashboard":
         st.plotly_chart(fig_inst, use_container_width=True)
 
         # ---------------------------
-        # EPA completion chart with hover for doctor names
-        # ---------------------------
-        # ---------------------------
         # EPA completion chart (no hover)
         # ---------------------------
         st.subheader("EPA Completion Status")
@@ -171,12 +168,6 @@ elif menu == "2. Rotations, EPA Tracking Dashboard":
         )
 
         st.plotly_chart(fig_epa, use_container_width=True)
-
-        # Doctors below avg teaching hours
-        avg_hours = df['teaching_hours'].mean()
-        below = df[df['teaching_hours'] < avg_hours]
-        st.subheader(f"Doctors below average teaching hours (< {avg_hours:.1f})")
-        st.dataframe(below[['full_name','email','teaching_hours','sponsoring_institution']])
 
 
 # ---------------------------
@@ -363,3 +354,4 @@ elif menu == "4. Resident Portfolio":
                 return ''
 
         st.dataframe(epa_df.style.applymap(highlight_not_completed, subset=['Completed']))
+
