@@ -188,8 +188,9 @@ elif menu == "3. Automated Email Reminders":
         st.markdown("⚠️ **Note:** Configure a real email and password to send emails via SMTP.")
         sender_email = st.text_input("Sender email", value="jayelleteo@gmail.com")
         sender_password = st.text_input("Email password", type="password")
+        st.warning("Full Name, Teaching Hours, and Average Hours are automatically filled in based on each respective doctor from the data table above.")
         custom_msg = st.text_area(
-            "Custom email message (Automated filling in of {full_name}, {teaching_hours}, {avg_hours} based on table above)",
+            "Custom email message",
             value="""Dear {full_name},
 
 We hope this message finds you well. 
@@ -354,4 +355,5 @@ elif menu == "4. Resident Portfolio":
                 return ''
 
         st.dataframe(epa_df.style.applymap(highlight_not_completed, subset=['Completed']))
+
 
