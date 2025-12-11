@@ -18,12 +18,12 @@ This Streamlit-based application is designed to manage and track the training pr
 ### 2. Rotations, EPA Tracking Dashboard
 - Visualize rotations distribution across departments.
 - Track EPA (Entrustable Professional Activities) completion status.
-- Identify doctors below average in teaching hours.
+- Identify doctors below average teaching hours.
 - Interactive bar charts for quick insights.
 
 ### 3. Automated Email Reminders
 - Send polite reminder emails to doctors with teaching hours below average.
-- Customizable email templates with placeholders for name, hours, and average.
+- Encourage doctors to clock in additional tutoring hours.
 
 ### 4. Update EPA
 - Update EPA levels for individual residents.
@@ -32,7 +32,7 @@ This Streamlit-based application is designed to manage and track the training pr
 ### 5. Resident Portfolio
 - Visualize resident-specific progress in teaching, ultrasound scans, and resuscitation procedures.
 - Track summative assessments and milestones.
-- Highlight incomplete or pending EPAs in a gentle color palette.
+- Highlight doctors with incomplete or pending EPAs.
 
 ---
 Note : This app is not exhaustive and does not consist of all compulsory procedures in the Emergency Department Residency Programme. 
