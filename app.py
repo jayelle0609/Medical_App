@@ -55,9 +55,10 @@ df = load_doctors()
 # Section 1: Add Doctor
 # ---------------------------
 if menu == "1. Add Doctor":
-    st.header("Add Doctor — Basic Information")
+    st.header("Add Doctor — Full Information")
 
     with st.form(key='add_doctor_form'):
+        st.subheader("Basic Information")
         col1, col2, col3 = st.columns(3)
         with col1:
             full_name = st.text_input("Full name")
@@ -76,6 +77,57 @@ if menu == "1. Add Doctor":
             teaching_hours = st.number_input("Teaching hours (initial)", min_value=0.0, value=0.0)
             sponsoring_institution = st.selectbox("Sponsoring Institution", ["SingHealth","NHG","NUHS"])
 
+        st.subheader("Ultrasound / Clinical / Teaching / Exam Status")
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            ultrasound_trauma_done = st.number_input("Ultrasound Trauma Done", min_value=0, value=0)
+            ultrasound_trauma_total = st.number_input("Ultrasound Trauma Total", min_value=0, value=0)
+            ultrasound_cardiac_done = st.number_input("Ultrasound Cardiac Done", min_value=0, value=0)
+            ultrasound_cardiac_total = st.number_input("Ultrasound Cardiac Total", min_value=0, value=0)
+            ultrasound_lung_done = st.number_input("Ultrasound Lung Done", min_value=0, value=0)
+            ultrasound_lung_total = st.number_input("Ultrasound Lung Total", min_value=0, value=0)
+        with col2:
+            adult_med_done = st.number_input("Adult Med Done", min_value=0, value=0)
+            adult_med_total = st.number_input("Adult Med Total", min_value=0, value=0)
+            adult_trauma_done = st.number_input("Adult Trauma Done", min_value=0, value=0)
+            adult_trauma_total = st.number_input("Adult Trauma Total", min_value=0, value=0)
+            ed_ultrasound_done = st.number_input("ED Ultrasound Done", min_value=0, value=0)
+            ed_ultrasound_total = st.number_input("ED Ultrasound Total", min_value=0, value=0)
+        with col3:
+            MMed_A_Status = st.text_input("MMed A Status")
+            MMed_B_Status = st.text_input("MMed B Status")
+            MMed_C_Status = st.text_input("MMed C Status")
+            Teaching_Admin_Status = st.text_input("Teaching Admin Status")
+            Clinical_Viva_Status = st.text_input("Clinical Viva Status")
+            CAT_Status = st.text_input("CAT Status")
+            ABMS_MCQs_Status = st.text_input("ABMS MCQs Status")
+
+        st.subheader("Tracking EPA Grades and Completion Status")
+        st.success(
+    "Necessary EPA Entrustment Level to be attained for exit: "
+    "[Necessary EPA Entrustment Level to be attained for exit](https://isomer-user-content.by.gov.sg/91/c65aeb46-a34c-4c92-8d36-12070f9690d8/emergency-medicine-epasd8f2c4aebc15419b8729ec17766476f7.pdf)"
+)
+
+        col1, col2 = st.columns(2)
+        with col1:
+            EPA1 = st.selectbox("EPA1", [1,2,3,4,5])
+            EPA2 = st.selectbox("EPA2", [1,2,3,4,5])
+            EPA3 = st.selectbox("EPA3", [1,2,3,4,5])
+            EPA4 = st.selectbox("EPA4", [1,2,3,4,5])
+            EPA5 = st.selectbox("EPA5", [1,2,3,4,5])
+            EPA6 = st.selectbox("EPA6", [1,2,3,4,5])
+            EPA7 = st.selectbox("EPA7", [1,2,3,4,5])
+            EPA8 = st.selectbox("EPA8", [1,2,3,4,5])
+        with col2:
+            EPA1_Completed = st.selectbox("EPA1 Completed", ["No", "Yes"])
+            EPA2_Completed = st.selectbox("EPA2 Completed", ["No", "Yes"])
+            EPA3_Completed = st.selectbox("EPA3 Completed", ["No", "Yes"])
+            EPA4_Completed = st.selectbox("EPA4 Completed", ["No", "Yes"])
+            EPA5_Completed = st.selectbox("EPA5 Completed", ["No", "Yes"])
+            EPA6_Completed = st.selectbox("EPA6 Completed", ["No", "Yes"])
+            EPA7_Completed = st.selectbox("EPA7 Completed", ["No", "Yes"])
+            EPA8_Completed = st.selectbox("EPA8 Completed", ["No", "Yes"])
+
         submit = st.form_submit_button("Save Doctor Information")
 
     if submit:
@@ -88,35 +140,49 @@ if menu == "1. Add Doctor":
             "medical_school": medical_school,
             "registration_id": registration_id,
             "email": email,
-            "phone": str(phone).replace(',', ''),  # remove commas
+            "phone": str(phone).replace(',', ''),
             "year": int(year),
             "rotations": ";".join(rotations),
             "teaching_hours": float(teaching_hours),
             "created_at": datetime.utcnow().isoformat(),
             "sponsoring_institution": sponsoring_institution,
-            "EPA1_Completed":"","EPA1_Level":"","EPA1_ExitMet":"",
-            "EPA2_Completed":"","EPA2_Level":"","EPA2_ExitMet":"",
-            "EPA3_Completed":"","EPA3_Level":"","EPA3_ExitMet":"",
-            "EPA4_Completed":"","EPA4_Level":"","EPA4_ExitMet":"",
-            "EPA5_Completed":"","EPA5_Level":"","EPA5_ExitMet":"",
-            "EPA6_Completed":"","EPA6_Level":"","EPA6_ExitMet":"",
-            "EPA7_Completed":"","EPA7_Level":"","EPA7_ExitMet":"",
-            "EPA8_Completed":"","EPA8_Level":"","EPA8_ExitMet":"",
-            "EPA1":"","EPA2":"","EPA3":"","EPA4":"","EPA5":"","EPA6":"","EPA7":"","EPA8":""
+            "ultrasound_trauma_done": ultrasound_trauma_done,
+            "ultrasound_trauma_total": ultrasound_trauma_total,
+            "ultrasound_cardiac_done": ultrasound_cardiac_done,
+            "ultrasound_cardiac_total": ultrasound_cardiac_total,
+            "ultrasound_lung_done": ultrasound_lung_done,
+            "ultrasound_lung_total": ultrasound_lung_total,
+            "adult_med_done": adult_med_done,
+            "adult_med_total": adult_med_total,
+            "adult_trauma_done": adult_trauma_done,
+            "adult_trauma_total": adult_trauma_total,
+            "ed_ultrasound_done": ed_ultrasound_done,
+            "ed_ultrasound_total": ed_ultrasound_total,
+            "MMed_A_Status": MMed_A_Status,
+            "MMed_B_Status": MMed_B_Status,
+            "MMed_C_Status": MMed_C_Status,
+            "Teaching_Admin_Status": Teaching_Admin_Status,
+            "Clinical_Viva_Status": Clinical_Viva_Status,
+            "CAT_Status": CAT_Status,
+            "ABMS_MCQs_Status": ABMS_MCQs_Status,
+            "EPA1": EPA1, "EPA2": EPA2, "EPA3": EPA3, "EPA4": EPA4, 
+            "EPA5": EPA5, "EPA6": EPA6, "EPA7": EPA7, "EPA8": EPA8,
+            "EPA1_Completed": EPA1_Completed, "EPA2_Completed": EPA2_Completed,
+            "EPA3_Completed": EPA3_Completed, "EPA4_Completed": EPA4_Completed,
+            "EPA5_Completed": EPA5_Completed, "EPA6_Completed": EPA6_Completed,
+            "EPA7_Completed": EPA7_Completed, "EPA8_Completed": EPA8_Completed
         }
+
         df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
         save_doctors(df)
         st.success(f"Saved doctor: {full_name}")
 
     st.markdown("---")
     st.subheader("All doctors in system")
-
-    # Display full text and remove truncation
     pd.set_option('display.max_colwidth', None)
-    df['phone'] = df['phone'].astype(str).str.replace(',', '')  # ensure phone format
+    df['phone'] = df['phone'].astype(str).str.replace(',', '')
+    st.dataframe(df, width=2500, height=500)
 
-    # Wider and taller display
-    st.dataframe(df, width=1200, height=500)
 
 
 # ---------------------------
