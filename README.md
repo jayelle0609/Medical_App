@@ -2,7 +2,7 @@
 
 **Medical Education — Residency Training Management App**
 
-This Streamlit-based application is designed to manage and track the training progress of medical residents. It was created for an NHG interview.
+This Streamlit-based application is designed to manage and track the training progress of medical residents. It was created for an NHG interview with the Programme Directors of Emergency Department Training.
 
 **Live App:** [nhgmedical.streamlit.app](https://nhgmedical.streamlit.app)
 
