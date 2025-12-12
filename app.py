@@ -41,8 +41,17 @@ def save_doctors(df: pd.DataFrame):
 # Streamlit App UI
 # ---------------------------
 st.set_page_config(page_title="Medical Education App", layout="wide")
-med_img = Image.open("med.jpg")
-st.image(med_img, caption="Making sense of hospital administration data.")
+
+# Center the image using HTML
+st.markdown(
+    """
+    <div style="text-align: center;">
+        <img src="med.jpg" width="400">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 st.title("Medical Education — Residency Training Management App")
 
 menu = st.sidebar.radio("Sections", [
