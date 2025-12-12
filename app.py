@@ -12,7 +12,7 @@ from PIL import Image
 # CSV file storage
 # ---------------------------
 
-med_img = Image.open("med1.png")
+med_img = Image.open("med.png")
 st.image(med_img, caption="Medical Education — Residency Training Management App")
 st.caption("**Making sense of hospital administration data.**")
 
