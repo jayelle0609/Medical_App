@@ -6,10 +6,17 @@ from datetime import datetime
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from PIL import Image
 
 # ---------------------------
 # CSV file storage
 # ---------------------------
+
+med_img = Image.open("med1.png")
+st.image(med_img, caption="Medical Education — Residency Training Management App")
+st.caption("**Making sense of hospital administration data.**")
+
+
 CSV_FILE = "default.csv"
 
 # Load doctors CSV
