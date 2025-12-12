@@ -42,13 +42,20 @@ def save_doctors(df: pd.DataFrame):
 # ---------------------------
 st.set_page_config(page_title="Medical Education App", layout="wide")
 
-col1, col2, col3 = st.columns([1, 3, 1])
-with col2:
-    st.image("med.jpg")
+page_bg_img = """
+<style>
+.stApp {
+background-image: url("med.jpg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+</style>
+"""
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
 
 st.title("Medical Education — Residency Training Management App")
-
-
 menu = st.sidebar.radio("Sections", [
     "1. Add Doctor",
     "2. Rotations, EPA Tracking Dashboard",
