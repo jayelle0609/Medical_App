@@ -41,7 +41,11 @@ def save_doctors(df: pd.DataFrame):
 # Streamlit App UI
 # ---------------------------
 # Sidebar image
+st.set_page_config(page_title="Medical Education App", layout="wide", initial_sidebar_state="expanded")
+
+# Sidebar image
 st.sidebar.image("med.jpg", use_column_width=True)
+
 
 st.title("Medical Education — Residency Training Management App")
 
