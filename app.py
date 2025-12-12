@@ -12,11 +12,6 @@ from PIL import Image
 # CSV file storage
 # ---------------------------
 
-med_img = Image.open("med.jpg")
-st.image(med_img, caption="Medical Education — Residency Training Management App")
-st.caption("**Making sense of hospital administration data.**")
-
-
 CSV_FILE = "default.csv"
 
 # Load doctors CSV
