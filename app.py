@@ -40,18 +40,24 @@ def save_doctors(df: pd.DataFrame):
 # ---------------------------
 # Streamlit App UI
 # ---------------------------
+import base64
+
 st.set_page_config(page_title="Medical Education App", layout="wide")
 
-# Sidebar background image
-sidebar_bg = """
+# Load image and convert to base64
+with open("med.jpg", "rb") as f:
+    data = f.read()
+    encoded = base64.b64encode(data).decode()
+
+# CSS to set sidebar background
+sidebar_bg = f"""
 <style>
-/* Sidebar background */
-[data-testid="stSidebar"] {
-    background-image: url("med.jpg");
-    background-size: cover;      /* make it fill the sidebar */
+[data-testid="stSidebar"] {{
+    background-image: url("data:image/jpeg;base64,{encoded}");
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
+}}
 </style>
 """
 
