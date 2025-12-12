@@ -42,17 +42,12 @@ def save_doctors(df: pd.DataFrame):
 # ---------------------------
 st.set_page_config(page_title="Medical Education App", layout="wide")
 
-# Center the image using HTML
-st.markdown(
-    """
-    <div style="text-align: center;">
-        <img src="med.jpg" width="400">
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+col1, col2, col3 = st.columns([1, 3, 1])
+with col2:
+    st.image("med.jpg")
 
 st.title("Medical Education — Residency Training Management App")
+
 
 menu = st.sidebar.radio("Sections", [
     "1. Add Doctor",
