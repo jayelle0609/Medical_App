@@ -41,9 +41,9 @@ def save_doctors(df: pd.DataFrame):
 # Streamlit App UI
 # ---------------------------
 st.set_page_config(page_title="Medical Education App", layout="wide")
-st.title("Medical Education — Residency Training Management App")
 med_img = Image.open("med.jpg")
 st.image(med_img, caption="Making sense of hospital administration data.")
+st.title("Medical Education — Residency Training Management App")
 
 menu = st.sidebar.radio("Sections", [
     "1. Add Doctor",
