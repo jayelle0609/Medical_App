@@ -49,14 +49,33 @@ with open("med.jpg", "rb") as f:
     data = f.read()
     encoded = base64.b64encode(data).decode()
 
-# CSS to set sidebar background
+# CSS for sidebar background + white overlay
 sidebar_bg = f"""
 <style>
+/* Sidebar background image */
 [data-testid="stSidebar"] {{
+    position: relative;
     background-image: url("data:image/jpeg;base64,{encoded}");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}}
+
+/* White overlay */
+[data-testid="stSidebar"]::before {{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6); /* adjust opacity here */
+    z-index: 0;
+}}
+
+[data-testid="stSidebar"] > div {{
+    position: relative;
+    z-index: 1; /* makes widgets appear above overlay */
 }}
 </style>
 """
