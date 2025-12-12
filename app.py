@@ -43,11 +43,6 @@ def save_doctors(df: pd.DataFrame):
 # Sidebar image
 st.sidebar.image("med.jpg", use_column_width=True)
 
-# Centered header image
-col1, col2, col3 = st.columns([1, 3, 1])
-with col2:
-    st.image("med.jpg", width=300)
-
 st.title("Medical Education — Residency Training Management App")
 
 menu = st.sidebar.radio("Sections", [
